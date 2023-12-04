@@ -7,8 +7,10 @@ void readfile(FILE *fp, char *line){
     while(1){
         char ch = fgetc(fp);
         *(line+i) = ch;
-        if(ch == '\n')
+        if(ch == '\n' || ch == EOF){
+            *(line+i) = '\0';
             break;
+        }
         i++;
     }
 }
